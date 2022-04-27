@@ -1,0 +1,3 @@
+usr/include/ahp
+usr/lib/*/libahp_hub*.so*
+usr/share/cmake-*/Modules/FindAHPHUB.cmake
