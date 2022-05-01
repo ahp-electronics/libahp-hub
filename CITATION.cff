@@ -5,7 +5,7 @@ authors:
   given-names: "Ilia"
   orcid: "https://orcid.org/0000-0002-8527-4611"
 title: "libahp-hub"
-version: 1.5.3
-doi: 10.5281/zenodo.6025154
+version: 1.0.0
+doi: 10.5281/zenodo.
 date-released: 2022-02-09
 url: "https://github.com/ahp-electronics/libahp-hub"

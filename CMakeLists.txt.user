@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.11.0, 2022-04-26T14:49:29. -->
+<!-- Written by QtCreator 4.11.0, 2022-05-01T01:28:58. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -8,7 +8,7 @@
  </data>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
-  <value type="int">0</value>
+  <value type="int">1</value>
  </data>
  <data>
   <variable>ProjectExplorer.Project.EditorSettings</variable>
@@ -346,7 +346,7 @@
   <valuemap type="QVariantMap">
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">MinGW32</value>
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">MinGW32</value>
-   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{d9c5959e-5e8a-4392-8dc9-07dfb0ad4572}</value>
+   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{994fbb29-7766-461a-bbb0-74d71584bbd3}</value>
    <value type="int" key="ProjectExplorer.Target.ActiveBuildConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
@@ -355,10 +355,14 @@
      <value type="QString">CMAKE_BUILD_TYPE:STRING=Debug</value>
      <value type="QString">CMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}</value>
      <value type="QString">CMAKE_CXX_COMPILER_TARGET :STRING=i686-w64-mingw32</value>
+     <value type="QString">CMAKE_CXX_COMPILER_WORKS:STRING=1</value>
      <value type="QString">CMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}</value>
      <value type="QString">CMAKE_C_COMPILER_TARGET:STRING=i686-w64-mingw32</value>
+     <value type="QString">CMAKE_C_COMPILER_WORKS:STRING=1</value>
+     <value type="QString">CMAKE_INSTALL_PREFIX:STRING=/usr/i686-w64-mingw32/</value>
      <value type="QString">CMAKE_PREFIX_PATH:STRING=%{Qt:QT_INSTALL_PREFIX}</value>
      <value type="QString">CMAKE_SYSROOT:STRING=/usr/i686-w64-mingw32</value>
+     <value type="QString">CMAKE_THREAD_LIBS_INIT:STRING=/usr/i686-w64-mingw32/lib/libpthread.dll.a</value>
      <value type="QString">QT_QMAKE_EXECUTABLE:STRING=%{Qt:qmakeExecutable}</value>
     </valuelist>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/plato/dev/github/build-libahp-hub-MinGW32-Debug</value>
@@ -371,7 +375,14 @@
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
       <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.MakeStep</value>
      </valuemap>
-     <value type="int" key="ProjectExplorer.BuildStepList.StepsCount">1</value>
+     <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.1">
+      <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
+      <value type="QString" key="ProjectExplorer.ProcessStep.Arguments">make install</value>
+      <value type="QString" key="ProjectExplorer.ProcessStep.Command">sudo</value>
+      <value type="QString" key="ProjectExplorer.ProcessStep.WorkingDirectory">%{buildDir}</value>
+      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.ProcessStep</value>
+     </valuemap>
+     <value type="int" key="ProjectExplorer.BuildStepList.StepsCount">2</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Build</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Build</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.BuildSteps.Build</value>
@@ -401,10 +412,14 @@
      <value type="QString">CMAKE_BUILD_TYPE:STRING=Release</value>
      <value type="QString">CMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}</value>
      <value type="QString">CMAKE_CXX_COMPILER_TARGET :STRING=i686-w64-mingw32</value>
+     <value type="QString">CMAKE_CXX_COMPILER_WORKS:STRING=1</value>
      <value type="QString">CMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}</value>
      <value type="QString">CMAKE_C_COMPILER_TARGET:STRING=i686-w64-mingw32</value>
+     <value type="QString">CMAKE_C_COMPILER_WORKS:STRING=1</value>
+     <value type="QString">CMAKE_INSTALL_PREFIX:STRING=/usr/i686-w64-mingw32/</value>
      <value type="QString">CMAKE_PREFIX_PATH:STRING=%{Qt:QT_INSTALL_PREFIX}</value>
      <value type="QString">CMAKE_SYSROOT:STRING=/usr/i686-w64-mingw32</value>
+     <value type="QString">CMAKE_THREAD_LIBS_INIT:STRING=/usr/i686-w64-mingw32/lib/libpthread.dll.a</value>
      <value type="QString">QT_QMAKE_EXECUTABLE:STRING=%{Qt:qmakeExecutable}</value>
     </valuelist>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/plato/dev/github/build-libahp-hub-MinGW32-Release</value>
@@ -447,10 +462,14 @@
      <value type="QString">CMAKE_BUILD_TYPE:STRING=RelWithDebInfo</value>
      <value type="QString">CMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}</value>
      <value type="QString">CMAKE_CXX_COMPILER_TARGET :STRING=i686-w64-mingw32</value>
+     <value type="QString">CMAKE_CXX_COMPILER_WORKS:STRING=1</value>
      <value type="QString">CMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}</value>
      <value type="QString">CMAKE_C_COMPILER_TARGET:STRING=i686-w64-mingw32</value>
+     <value type="QString">CMAKE_C_COMPILER_WORKS:STRING=1</value>
+     <value type="QString">CMAKE_INSTALL_PREFIX:STRING=/usr/i686-w64-mingw32/</value>
      <value type="QString">CMAKE_PREFIX_PATH:STRING=%{Qt:QT_INSTALL_PREFIX}</value>
      <value type="QString">CMAKE_SYSROOT:STRING=/usr/i686-w64-mingw32</value>
+     <value type="QString">CMAKE_THREAD_LIBS_INIT:STRING=/usr/i686-w64-mingw32/lib/libpthread.dll.a</value>
      <value type="QString">QT_QMAKE_EXECUTABLE:STRING=%{Qt:qmakeExecutable}</value>
     </valuelist>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/plato/dev/github/build-libahp-hub-MinGW32-RelWithDebInfo</value>
@@ -493,10 +512,14 @@
      <value type="QString">CMAKE_BUILD_TYPE:STRING=MinSizeRel</value>
      <value type="QString">CMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}</value>
      <value type="QString">CMAKE_CXX_COMPILER_TARGET :STRING=i686-w64-mingw32</value>
+     <value type="QString">CMAKE_CXX_COMPILER_WORKS:STRING=1</value>
      <value type="QString">CMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}</value>
      <value type="QString">CMAKE_C_COMPILER_TARGET:STRING=i686-w64-mingw32</value>
+     <value type="QString">CMAKE_C_COMPILER_WORKS:STRING=1</value>
+     <value type="QString">CMAKE_INSTALL_PREFIX:STRING=/usr/i686-w64-mingw32/</value>
      <value type="QString">CMAKE_PREFIX_PATH:STRING=%{Qt:QT_INSTALL_PREFIX}</value>
      <value type="QString">CMAKE_SYSROOT:STRING=/usr/i686-w64-mingw32</value>
+     <value type="QString">CMAKE_THREAD_LIBS_INIT:STRING=/usr/i686-w64-mingw32/lib/libpthread.dll.a</value>
      <value type="QString">QT_QMAKE_EXECUTABLE:STRING=%{Qt:qmakeExecutable}</value>
     </valuelist>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/plato/dev/github/build-libahp-hub-MinGW32-MinSizeRel</value>
@@ -629,7 +652,7 @@
   <valuemap type="QVariantMap">
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">MinGW64</value>
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">MinGW64</value>
-   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{239eb6a6-c31a-48e0-a97c-935879fd9327}</value>
+   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{a47e7737-c36c-4eac-9e8b-83b3c1c7cf00}</value>
    <value type="int" key="ProjectExplorer.Target.ActiveBuildConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
@@ -638,10 +661,14 @@
      <value type="QString">CMAKE_BUILD_TYPE:STRING=Debug</value>
      <value type="QString">CMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}</value>
      <value type="QString">CMAKE_CXX_COMPILER_TARGET :STRING=x86_64-w64-mingw32</value>
+     <value type="QString">CMAKE_CXX_COMPILER_WORKS:STRING=1</value>
      <value type="QString">CMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}</value>
      <value type="QString">CMAKE_C_COMPILER_TARGET:STRING=x86_64-w64-mingw32</value>
+     <value type="QString">CMAKE_C_COMPILER_WORKS:STRING=1</value>
+     <value type="QString">CMAKE_INSTALL_PREFIX:STRING=/usr/x86_64-w64-mingw32/</value>
      <value type="QString">CMAKE_PREFIX_PATH:STRING=%{Qt:QT_INSTALL_PREFIX}</value>
-     <value type="QString">CMAKE_SYSROOT:STRING=/usr/i686-w64-mingw32.tmp</value>
+     <value type="QString">CMAKE_SYSROOT:STRING=/usr/x86_64-w64-mingw32</value>
+     <value type="QString">CMAKE_THREAD_LIBS_INIT:STRING=/usr/x86_64-w64-mingw32/lib/libpthread.dll.a</value>
      <value type="QString">QT_QMAKE_EXECUTABLE:STRING=%{Qt:qmakeExecutable}</value>
     </valuelist>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/plato/dev/github/build-libahp-hub-MinGW64-Debug</value>
@@ -654,7 +681,14 @@
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
       <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.MakeStep</value>
      </valuemap>
-     <value type="int" key="ProjectExplorer.BuildStepList.StepsCount">1</value>
+     <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.1">
+      <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
+      <value type="QString" key="ProjectExplorer.ProcessStep.Arguments">make install</value>
+      <value type="QString" key="ProjectExplorer.ProcessStep.Command">sudo</value>
+      <value type="QString" key="ProjectExplorer.ProcessStep.WorkingDirectory">%{buildDir}</value>
+      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.ProcessStep</value>
+     </valuemap>
+     <value type="int" key="ProjectExplorer.BuildStepList.StepsCount">2</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Build</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Build</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.BuildSteps.Build</value>
@@ -684,10 +718,14 @@
      <value type="QString">CMAKE_BUILD_TYPE:STRING=Release</value>
      <value type="QString">CMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}</value>
      <value type="QString">CMAKE_CXX_COMPILER_TARGET :STRING=x86_64-w64-mingw32</value>
+     <value type="QString">CMAKE_CXX_COMPILER_WORKS:STRING=1</value>
      <value type="QString">CMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}</value>
      <value type="QString">CMAKE_C_COMPILER_TARGET:STRING=x86_64-w64-mingw32</value>
+     <value type="QString">CMAKE_C_COMPILER_WORKS:STRING=1</value>
+     <value type="QString">CMAKE_INSTALL_PREFIX:STRING=/usr/x86_64-w64-mingw32/</value>
      <value type="QString">CMAKE_PREFIX_PATH:STRING=%{Qt:QT_INSTALL_PREFIX}</value>
-     <value type="QString">CMAKE_SYSROOT:STRING=/usr/i686-w64-mingw32.tmp</value>
+     <value type="QString">CMAKE_SYSROOT:STRING=/usr/x86_64-w64-mingw32</value>
+     <value type="QString">CMAKE_THREAD_LIBS_INIT:STRING=/usr/x86_64-w64-mingw32/lib/libpthread.dll.a</value>
      <value type="QString">QT_QMAKE_EXECUTABLE:STRING=%{Qt:qmakeExecutable}</value>
     </valuelist>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/plato/dev/github/build-libahp-hub-MinGW64-Release</value>
@@ -730,10 +768,14 @@
      <value type="QString">CMAKE_BUILD_TYPE:STRING=RelWithDebInfo</value>
      <value type="QString">CMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}</value>
      <value type="QString">CMAKE_CXX_COMPILER_TARGET :STRING=x86_64-w64-mingw32</value>
+     <value type="QString">CMAKE_CXX_COMPILER_WORKS:STRING=1</value>
      <value type="QString">CMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}</value>
      <value type="QString">CMAKE_C_COMPILER_TARGET:STRING=x86_64-w64-mingw32</value>
+     <value type="QString">CMAKE_C_COMPILER_WORKS:STRING=1</value>
+     <value type="QString">CMAKE_INSTALL_PREFIX:STRING=/usr/x86_64-w64-mingw32/</value>
      <value type="QString">CMAKE_PREFIX_PATH:STRING=%{Qt:QT_INSTALL_PREFIX}</value>
-     <value type="QString">CMAKE_SYSROOT:STRING=/usr/i686-w64-mingw32.tmp</value>
+     <value type="QString">CMAKE_SYSROOT:STRING=/usr/x86_64-w64-mingw32</value>
+     <value type="QString">CMAKE_THREAD_LIBS_INIT:STRING=/usr/x86_64-w64-mingw32/lib/libpthread.dll.a</value>
      <value type="QString">QT_QMAKE_EXECUTABLE:STRING=%{Qt:qmakeExecutable}</value>
     </valuelist>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/plato/dev/github/build-libahp-hub-MinGW64-RelWithDebInfo</value>
@@ -776,10 +818,14 @@
      <value type="QString">CMAKE_BUILD_TYPE:STRING=MinSizeRel</value>
      <value type="QString">CMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}</value>
      <value type="QString">CMAKE_CXX_COMPILER_TARGET :STRING=x86_64-w64-mingw32</value>
+     <value type="QString">CMAKE_CXX_COMPILER_WORKS:STRING=1</value>
      <value type="QString">CMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}</value>
      <value type="QString">CMAKE_C_COMPILER_TARGET:STRING=x86_64-w64-mingw32</value>
+     <value type="QString">CMAKE_C_COMPILER_WORKS:STRING=1</value>
+     <value type="QString">CMAKE_INSTALL_PREFIX:STRING=/usr/x86_64-w64-mingw32/</value>
      <value type="QString">CMAKE_PREFIX_PATH:STRING=%{Qt:QT_INSTALL_PREFIX}</value>
-     <value type="QString">CMAKE_SYSROOT:STRING=/usr/i686-w64-mingw32.tmp</value>
+     <value type="QString">CMAKE_SYSROOT:STRING=/usr/x86_64-w64-mingw32</value>
+     <value type="QString">CMAKE_THREAD_LIBS_INIT:STRING=/usr/x86_64-w64-mingw32/lib/libpthread.dll.a</value>
      <value type="QString">QT_QMAKE_EXECUTABLE:STRING=%{Qt:qmakeExecutable}</value>
     </valuelist>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/plato/dev/github/build-libahp-hub-MinGW64-MinSizeRel</value>
