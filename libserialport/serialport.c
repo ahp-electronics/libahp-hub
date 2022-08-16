@@ -242,12 +242,12 @@ SP_API char *sp_get_port_bluetooth_address(const struct sp_port *port)
 SP_API enum sp_return sp_get_port_handle(const struct sp_port *port,
                                          void *result_ptr)
 {
-	TRACE("%p, %p", port, result_ptr);
+    TRACE("%p, %p", port, result_ptr);
 
-	if (!port)
-		RETURN_ERROR(SP_ERR_ARG, "Null port");
-	if (!result_ptr)
-		RETURN_ERROR(SP_ERR_ARG, "Null result pointer");
+    if (!port)
+        RETURN_ERROR(SP_ERR_ARG, "Null port");
+    if (!result_ptr)
+        RETURN_ERROR(SP_ERR_ARG, "Null result pointer");
 
     int *fd_ptr = result_ptr;
 #ifdef _WIN32
@@ -256,7 +256,9 @@ SP_API enum sp_return sp_get_port_handle(const struct sp_port *port,
     *fd_ptr = port->fd;
 #endif
 
-	RETURN_OK();
+    if(*fd_ptr == -1)
+        RETURN_ERROR(SP_ERR_ARG, "Invalid file descriptor");
+    RETURN_OK();
 }
 
 SP_API enum sp_return sp_copy_port(const struct sp_port *port,
