@@ -11,16 +11,35 @@ find_package(Threads REQUIRED)
 
 set(LIB_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
 set(AHP_HUB_VERSION_MAJOR 1)
-set(AHP_HUB_VERSION_MINOR 5)
-set(AHP_HUB_VERSION_RELEASE 3)
+set(AHP_HUB_VERSION_MINOR 2)
+set(AHP_HUB_VERSION_RELEASE 9)
 set(AHPHUB_VERSION "${AHP_HUB_VERSION_MAJOR}.${AHP_HUB_VERSION_MINOR}.${AHP_HUB_VERSION_RELEASE}")
 set(AHP_HUB_VERSION 0x${AHP_HUB_VERSION_MAJOR}${AHP_HUB_VERSION_MINOR}${AHP_HUB_VERSION_RELEASE})
 set(AHPHUB_SOVERSION ${AHP_HUB_VERSION_MAJOR})
 
 set(SOURCES
-    ${CMAKE_CURRENT_SOURCE_DIR}/rs232.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/libserialport/serialport.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/libserialport/timing.c
     ${CMAKE_CURRENT_SOURCE_DIR}/ahp_hub.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/rs232.c
    )
+
+if (WIN32)
+set(PLATFORM_SOURCES
+      ${CMAKE_CURRENT_SOURCE_DIR}/libserialport/windows.c
+   )
+else (WIN32)
+   if (APPLE)
+   set(PLATFORM_SOURCES
+      ${CMAKE_CURRENT_SOURCE_DIR}/libserialport/macosx.c
+   )
+   else (APPLE)
+   set(PLATFORM_SOURCES
+       ${CMAKE_CURRENT_SOURCE_DIR}/libserialport/linux.c
+       ${CMAKE_CURRENT_SOURCE_DIR}/libserialport/linux_termios.c
+   )
+   endif(APPLE)
+endif (WIN32)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/ahp_hub.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/ahp_hub.h )
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.cmake ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile )
@@ -28,10 +47,16 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.cmake ${CMAKE_CURRENT_BINARY
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${CMAKE_INCLUDE_PATH})
 link_directories(${CMAKE_LIBRARY_PATH})
+
 execute_process (COMMAND doxygen ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 
-add_library(ahp_hub SHARED ${SOURCES})
-set_target_properties(ahp_hub PROPERTIES VERSION ${AHPHUB_VERSION} SOVERSION ${AHPHUB_SOVERSION})
+add_library(ahp_hub SHARED ${SOURCES} ${PLATFORM_SOURCES})
+
+if(WIN32)
+    target_link_libraries(ahp_hub ws2_32 setupapi cfgmgr32)
+else(WIN32)
+   set_target_properties(ahp_hub PROPERTIES VERSION ${AHPHUB_VERSION} SOVERSION ${AHPHUB_SOVERSION})
+endif(WIN32)
 
 target_link_libraries(ahp_hub ${CMAKE_THREAD_LIBS_INIT} ${M_LIB})
 
