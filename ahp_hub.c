@@ -56,7 +56,7 @@ int ahp_hub_connect(const char* port)
     if(ahp_hub_is_connected())
         return 0;
     if(!ahp_serial_OpenComport(port)) {
-        if(!ahp_serial_SetupPort(9600, "8N1", 0)) {
+        if(!ahp_serial_SetupPort(9600, "8N1")) {
             ahp_hub_connected = 1;
             return 0;
         }
