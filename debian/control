@@ -5,6 +5,7 @@ Maintainer: Ilia Platone <info@iliaplatone.com>
 Build-Depends: debhelper (>= 8.1.3~),
  cdbs,
  cmake (>= 2.4.7),
+ liburjtag
 Standards-Version: 3.9.5
 Homepage: http://iliaplatone.github.io/OpenVLBI/
 Vcs-Git: git://github.com/iliaplatone/OpenVLBI.git
