@@ -26,13 +26,37 @@
 #include "ahp_hub.h"
 #include "rs232.c"
 #include <pthread.h>
+#include <urjtag.h>
 
 static int mutexes_initialized = 0;
 static pthread_mutexattr_t mutex_attr;
 static pthread_mutex_t mutex;
 static unsigned int ahp_hub_connected = 0;
 
-
+static int program_jtag(const char *svf_file, const char *drivername, const char *bsdl_path, long frequency)
+{
+    int ret = 1;
+    urj_chain_t *chain;
+    const urj_cable_driver_t *driver;
+    chain = urj_tap_chain_alloc ();
+    if(bsdl_path != NULL)
+        urj_bsdl_set_path (chain, bsdl_path);
+    driver = urj_tap_cable_find (drivername);
+    urj_cable_t *cable = urj_tap_cable_usb_connect (chain, driver, NULL);
+    urj_tap_cable_set_frequency (cable, frequency);
+    int ndevs = urj_tap_detect(chain, 32);
+    if(ndevs == URJ_STATUS_OK) {
+        FILE *svf = fopen(svf_file, "r");
+        if(svf != NULL) {
+            urj_svf_run (chain, svf, 0, 0);
+            if(URJ_STATUS_OK)
+                ret = 0;
+            fclose (svf);
+        }
+    }
+    urj_tap_chain_free(chain);
+    return ret;
+}
 int ahp_hub_connect_fd(int fd)
 {
     if(ahp_hub_is_connected())
@@ -77,6 +101,11 @@ void ahp_hub_disconnect()
         }
         ahp_hub_connected = 0;
     }
+}
+
+int ahp_hub_load_firmware(const char *svf_file, const char *bsdl_path)
+{
+    return program_jtag(svf_file, "dirtyjtag", bsdl_path, 1000000);
 }
 
 unsigned int ahp_hub_is_connected()

@@ -8,6 +8,7 @@ include(GNUInstallDirs)
 
 find_package(M REQUIRED)
 find_package(Threads REQUIRED)
+find_package(URJTAG REQUIRED)
 
 set(LIB_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
 set(AHP_HUB_VERSION_MAJOR 1)
@@ -27,6 +28,7 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.cmake ${CMAKE_CURRENT_BINARY
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${CMAKE_INCLUDE_PATH})
+include_directories( ${URJTAG_INCLUDE_DIR})
 link_directories(${CMAKE_LIBRARY_PATH})
 
 execute_process (COMMAND doxygen ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
