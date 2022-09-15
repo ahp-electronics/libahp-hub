@@ -10,6 +10,7 @@ find_package(M REQUIRED)
 find_package(Threads REQUIRED)
 find_package(URJTAG REQUIRED)
 find_package(USB REQUIRED)
+find_package(FTDI REQUIRED)
 
 set(LIB_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
 set(AHP_HUB_VERSION_MAJOR 1)
@@ -43,7 +44,7 @@ else(WIN32)
    set_target_properties(ahp_hub PROPERTIES VERSION ${AHPHUB_VERSION} SOVERSION ${AHPHUB_SOVERSION})
 endif(WIN32)
 
-target_link_libraries(ahp_hub ${CMAKE_THREAD_LIBS_INIT} ${M_LIB} ${URJTAG_LIBRARIES} ${USB_LIBRARY})
+target_link_libraries(ahp_hub ${CMAKE_THREAD_LIBS_INIT} ${M_LIB} ${URJTAG_LIBRARIES} ${USB_LIBRARY} ${FTDI_LIBRARIES})
 
 install(TARGETS ahp_hub LIBRARY DESTINATION ${LIB_INSTALL_DIR})
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/ahp_hub.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/ahp)

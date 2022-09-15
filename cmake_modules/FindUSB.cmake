@@ -1,81 +1,65 @@
-# - Try to find libusb-1.0
+# - Try to find USB
 # Once done this will define
 #
-#  USB_FOUND - system has libusb-1.0
-#  USB_INCLUDE_DIRS - the libusb-1.0 include directories
-#  USB_LIBRARIES - Link these to use libusb-1.0
-#  USB_DEFINITIONS - Compiler switches required for using libusb-1.0
+#  USB_FOUND - system has USB
+#  USB_INCLUDE_DIRS - the USB include directory
+#  USB_LIBRARIES - Link these to use USB
+#  USB_DEFINITIONS - Compiler switches required for using USB
 #
-#  USB_HAS_LIBUSB_ERROR_NAME - defined when libusb-1.0 has libusb_error_name()
+#  Copyright (c) 2006 Andreas Schneider <mail@cynapses.org>
+#
+#  Redistribution and use is allowed according to the terms of the New
+#  BSD license.
+#  For details see the accompanying COPYING-CMAKE-SCRIPTS file.
+#
 
-#=============================================================================
-# Copyright (c) 2017 Pino Toscano <toscano.pino@tiscali.it>
-#
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions
-# are met:
-#
-# 1. Redistributions of source code must retain the copyright
-#    notice, this list of conditions and the following disclaimer.
-# 2. Redistributions in binary form must reproduce the copyright
-#    notice, this list of conditions and the following disclaimer in the
-#    documentation and/or other materials provided with the distribution.
-# 3. The name of the author may not be used to endorse or promote products
-#    derived from this software without specific prior written permission.
-#
-# THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
-# IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
-# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-# IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
-# INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-# NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-# THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
-# THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#=============================================================================
 
-find_package(PkgConfig)
-pkg_check_modules(PC_LIBUSB QUIET libusb)
+if (USB_LIBRARIES AND USB_INCLUDE_DIRS)
+  # in cache already
+  set(USB_FOUND TRUE)
+else (USB_LIBRARIES AND USB_INCLUDE_DIRS)
+  find_path(USB_INCLUDE_DIR
+    NAMES
+      usb.h
+    PATHS
+      /usr/include
+      /usr/local/include
+      /opt/local/include
+      /sw/include
+  )
 
-find_path(USB_INCLUDE_DIR
-  NAMES
-    libusb.h
-  HINTS
-    ${PC_LIBUSB_INCLUDE_DIRS}
+  find_library(USB_LIBRARY
+    NAMES
+      usb
+    PATHS
+      /usr/lib
+      /usr/local/lib
+      /opt/local/lib
+      /sw/lib
+  )
+
+  set(USB_INCLUDE_DIRS
+    ${USB_INCLUDE_DIR}
+  )
+  set(USB_LIBRARIES
+    ${USB_LIBRARY}
 )
 
-find_library(USB_LIBRARY
-  NAMES
-    ${PC_LIBUSB_LIBRARIES}
-    usb
-  HINTS
-    ${PC_LIBUSB_LIBRARY_DIRS}
-)
+  if (USB_INCLUDE_DIRS AND USB_LIBRARIES)
+     set(USB_FOUND TRUE)
+  endif (USB_INCLUDE_DIRS AND USB_LIBRARIES)
 
-set(USB_INCLUDE_DIRS ${USB_INCLUDE_DIR})
-set(USB_LIBRARIES ${USB_LIBRARY})
+  if (USB_FOUND)
+    if (NOT USB_FIND_QUIETLY)
+      message(STATUS "Found USB: ${USB_LIBRARIES}")
+    endif (NOT USB_FIND_QUIETLY)
+  else (USB_FOUND)
+    if (USB_FIND_REQUIRED)
+      message(FATAL_ERROR "Could not find USB")
+    endif (USB_FIND_REQUIRED)
+  endif (USB_FOUND)
 
-include(FindPackageHandleStandardArgs)
-find_package_handle_standard_args(USB
-  FOUND_VAR
-    USB_FOUND
-  REQUIRED_VARS
-    USB_LIBRARY
-    USB_INCLUDE_DIR
-  VERSION_VAR
-    PC_LIBUSB_VERSION
-)
+  # show the USB_INCLUDE_DIRS and USB_LIBRARIES variables only in the advanced view
+  mark_as_advanced(USB_INCLUDE_DIRS USB_LIBRARIES)
 
-mark_as_advanced(USB_INCLUDE_DIRS USB_LIBRARIES)
-
-if(USB_FOUND)
-  include(CheckCXXSourceCompiles)
-  include(CMakePushCheckState)
-  cmake_push_check_state(RESET)
-  set(CMAKE_REQUIRED_INCLUDES ${USB_INCLUDE_DIRS})
-  set(CMAKE_REQUIRED_LIBRARIES ${USB_LIBRARIES})
-  check_cxx_source_compiles("#include <usb.h>
-    int main() { libusb_error_name(0); return 0; }" USB_HAS_LIBUSB_ERROR_NAME)
-  cmake_pop_check_state()
-endif()
+endif (USB_LIBRARIES AND USB_INCLUDE_DIRS)
