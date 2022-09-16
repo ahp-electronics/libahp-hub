@@ -128,6 +128,23 @@ DLL_EXPORT int ahp_hub_get_fd();
 */
 DLL_EXPORT unsigned int ahp_hub_is_connected();
 
+/**
+* \brief Download an svf firmware file to the device
+* \param svf_file The path of the firmware file
+* \param bsdl_path The path of the BSDL boundary scan description file
+* \return non-zero if any error occured
+*/
+DLL_EXPORT int ahp_hub_flash_svf(const char *svf_file, const char *bsdl_path);
+
+/**
+* \brief Download a dfu firmware file to the device
+* \param dfu_file The path of the firmware file
+* \param progress The progress in percent of this operation passed by reference
+* \param finished When complete thi variable is set to 1 by reference
+* \return non-zero if any error occured
+*/
+DLL_EXPORT int ahp_hub_flash_dfu(const char *dfu_file, int *progress, int *finished);
+
 /**\}
  * \defgroup SG Communication
  * \{*/

@@ -27,6 +27,7 @@
 #include "rs232.c"
 #include <pthread.h>
 #include <urjtag.h>
+#include <dfu.h>
 
 static int mutexes_initialized = 0;
 static pthread_mutexattr_t mutex_attr;
@@ -57,6 +58,7 @@ static int program_jtag(const char *svf_file, const char *drivername, const char
     urj_tap_chain_free(chain);
     return ret;
 }
+
 int ahp_hub_connect_fd(int fd)
 {
     if(ahp_hub_is_connected())
@@ -103,9 +105,14 @@ void ahp_hub_disconnect()
     }
 }
 
-int ahp_hub_load_firmware(const char *svf_file, const char *bsdl_path)
+int ahp_hub_flash_svf(const char *svf_file, const char *bsdl_path)
 {
     return program_jtag(svf_file, "dirtyjtag", bsdl_path, 1000000);
+}
+
+int ahp_hub_flash_dfu(const char *dfu_file, int *progress, int *finished)
+{
+    return dfu_flash(dfu_file, progress, finished);
 }
 
 unsigned int ahp_hub_is_connected()
