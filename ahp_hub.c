@@ -27,6 +27,9 @@
 #include "rs232.c"
 #include <pthread.h>
 #include <urjtag.h>
+#include <svf.h>
+#include <bsdl.h>
+#include <bsdl_mode.h>
 #include <dfu.h>
 
 static int mutexes_initialized = 0;
